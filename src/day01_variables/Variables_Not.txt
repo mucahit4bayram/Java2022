@@ -1,0 +1,176 @@
+
+
+        /*           /-/-/ Class Oluþtururken (Deklaration) Kullanýlan Keyword'ler /-/-/
+
+        public class MyFirstClass {}
+           1     2         3       4
+
+        1 Access Modifier (Eriþim düzenleyici) : Class'a kimlerin eriþebileceðini beliler
+                   - public olursa her yerden eriþilebilir.
+                   - default : sadece bulunduðu Package'den kullanýlabilir.
+
+        2 class : Yazdýðýmýz kodun class olduðunu belirtir.
+
+        3 MyFirstClass : Oluþturduðumuz class'ýn ismidir.
+                    - Ýsim mutlaka büyük harfle baþlar
+                    - Birden fazla kelime olursa Camel Case
+
+        4 Body (Class Body): {} arasýnda kalan kodlarýmýzý yazdýðýmýz bölümdür.
+         */
+        /*           /-/-/ Method Oluþtururken Kullanýlan Keyword'ler /-/-/
+
+        public int myFirstMethod () {}
+           1    2         3      4   5
+
+        1 Access Modifier (Eriþim düzenleyici) : Class'a kimlerin eriþebileceðini beliler
+                   - public    : her yerden eriþilebilir.
+                   - private   : sadece bulunduðu class'da kullanýlabilir.
+                   - protected : sadece içinde bulunduðu class ve child'larda kullanýlýr
+
+        2 Int    : Return Type, methodun ne ürettiðini ve bize döndürdüðünü belirtir.
+
+        3 MyFirstMethod : Oluþturduðumuz method'un ismidir.
+                    - Ýsim mutlaka küçük harfle baþlar
+                    - Birden fazla kelime olursa Camel Case
+
+        4 () parantez : Methodlarda isimden sonra parantez kullanýlýr ve gerektiðinde parantez içinde parametre yazýlýr.
+
+        5 Body (Method Body): {} arasýnda kalan kodlarýmýzý yazdýðýmýz bölümdür.
+         */
+        /*            /-/-/ Main Method   /-/-/
+
+        public static void main(String[] args) {}
+        - main method, java'nýn çalýþmaya baþladýðý giriþtir. (Entry Point)
+        - main method oluþturulurken yazýlmasý gereken syntax (kod dizimi) deðiþtirilemez.
+        - parantez içinde yazýlan (String[] args), java'nýn çalýþmasý için gerekli olan parametreleri barýndýrýr ve
+          olmasý þarttýr.
+
+         */
+        /*            /-/-/  Yorum Cümlesi (Comment) /-/-/
+
+               // ----> Tek satýrlýk comment
+               /* ----> Çok satýrlýk comment
+         */
+
+        /*     /-/-/ Variables (Deðiþken)  /-/-/
+
+        Deðiþkenler programlamada geçici bilgileri sakladýðýmýz ve programcý tarafýndan belirlenen yapýlardýr.
+        Deðiþkenler programlamanýn temel yapýsýný oluþturmaktadýr.
+        Deðiþkenler sayesinde program içinde yaptýðýmýz iþlemleri hafýza da tutar ve gerektiði yerlerde kullanýrýz.
+        Deðiþkenlerin 4 özelliði bulunur - Veri Tipi, Ýsim, Deðer ve Adres.
+        /*
+        Java'da, tüm deðiþkenler kullanýlmadan önce deklare edilmelidir.(variable declaration)
+        Variable declaration için iki þeyi bilmemiz gerekiyor.
+        1- Data type (data türü)
+        2- Variable Name (deðiþken ismi)
+         */
+
+
+             int             not             =                     60             ;
+
+        //data turu       variable ismi   asigment sign      variable deðeri iþlem bitti iþareti
+
+        int not2 = 70;
+
+        // veriable deðer
+        // java önce deðeri hesaplar sonra assing iþlemini yapar
+
+        // not2'yi 90 yapalým
+
+        not2 = 90;
+
+        // yeni bir variable oluþturalým deðeri ilk iki variable'in ortalamasý olsun
+
+        int ort = (not + not2) / 2;
+
+        System.out.println(ort);     // 75
+
+        // "" içerisinde yazýlan herþey metindir, java "" içinde ne görürse onu yazdýrýr
+        // eðer bir variable in deðerini yazdýrmak istiyorsanýz
+        // "" olmadan variable ismini yazmalýsýnýz
+
+        System.out.println("ortalama :" + (ort)); // ortalama :75
+
+
+        int sayi;       // ; yazim dilindeki . gibidir. java ;'u gorunce o satirdaki kod yaziliminin bittigini anlar
+
+        sayi=27;
+
+        System.out.print(sayi);      // println degil de print yazarsak yazdirma isleminden sonra alt satira gecmez
+
+        char ilkHarf='M';                        //!!! Ö N E M L Ý !!!//
+
+        System.out.println(ilkHarf);  // println yazinca yazma isleminden sonra alt satira gecer
+
+        double sayiDouble = 5.34;
+
+        System.out.println(sayiDouble);        // 5.34
+
+        System.out.println(sayi + sayiDouble); // 32.34
+
+        System.out.println(sayi + ilkHarf);    //27 + 77 =104
+        // Eger bir toplama isleminde char degisken kullanilirsa karakterin Ascii degeri ile toplama yapar !!!!
+
+        /*  /-/-/ Variable Deðer Atama (Assignment)   /-/-/
+
+        * Ýlk önce declaration, daha sonra atama yapýlabilir.
+        String isim;
+        boolean ogrenciMi;
+        int not;
+        double ortalama;
+
+        isim = "Mehmet";
+        ogrenciMi = false;
+        not = 85;
+        ortalama = 78.3;
+
+        * Bir defa declaration yapýldýktan sonra, birden fazla atama yapýlabilir.Java son deðeri tutar, öncekini siler.
+        int level = 1;
+        level = 2;
+        level = 3;
+
+        * Ayni data türünde birden fazla variable tek komutla deklare edilebilir.
+        int level,yas,maas;
+        level = 5;
+        yas = 20;
+        maas = 10000;
+
+        * Ayný data türünde biden fazla variable tek komutla deklare edilip deðer atanabilir.
+        int level =5, yas=20, maas=10000;
+
+         */
+         /*
+         - Primitive (ilkel) Data Types : blooean, char, byte, short, int, long, float, double
+
+         - Non Primitive Data Types : String
+
+           ilerleyen derslerde göreceðimiz primitive olmayan Array,  List, Object gibi her data non primitive'dir.
+          */
+            /*
+            Primitive (Ýlkel) Veri Tipleri
+
+        Ýlkel veri tipleri, genel olarak sayýsal veri tutmak için kullanýlýr.
+        Tuttuklarý sayýsal tipler tam sayý ve ondalýklý sayý olarak 2’ye ayrýlýr.
+        Bunun dýþýnda tek karakter tutmak için ya da true-false tiplerinde veriler
+        tutmak için kullanýlan primitive veri tipleri vardýr.
+
+        Byte: Bellek üzerinde 1 byte yer kaplar. Tamsayý türünde -128 ile 127 arasýnda deðerler alýr.
+
+        Short: 16 bittir. Byte tipinde tanýmlanan sayýlardan daha büyük sayýlar tanýmlanabilir.
+                      -32768 ile 32767 arasýnda deðerler tanýmlanabilir.
+
+        Integer (int): En fazla kullanýlan veri tipidir. Bellekte 4 Byte yer kaplar ve 32 bittir.
+                   -2³¹ ile 2³¹-1 arasýnda deðerler tanýmlanabilir.
+
+        Long: Uzunluðu 64 bittir. Tamsayý türünde -2?³ ile 2?³-1 arasýnda deðerler tanýmlanabilir.
+
+        Float: Uzunluðu 32 bittir. (4 byte) Ondalýk sayý türünde -3.4*10³? ile 3.4*10³? arasýnda deðerler alýr.
+               (7 basamak) arasýnda deðer depolayabilmektedir.
+        Double: Uzunluðu 64 bittir. Ondalýk sayý türünde -1.7*10³?? ile 1.7*10³?? arasýnda deðerler alýr.
+               (17 basamak) arasýnda deðer depolayabilmektedir.
+        Char: Veri tipinin uzunluðu 16 bittir. Karakter türünde deðerler alýr. Tanýmlama yapýlýrken yalnýz bir rakam,
+              iþaret veya harf kullanýlabilir. Yapýlan tanýmlama iþlemleri tek týrnak arasýnda yapýlmalýdýr.
+
+        Boolean: Diðer deðiþkenlerden daha farklý olarak sadece 2 deðer alýr. Bu deðerler true veya false’dir.
+                 Bellekte bir bit yer kaplar. Mantýksal tipler olarak da bilinir.
+             */

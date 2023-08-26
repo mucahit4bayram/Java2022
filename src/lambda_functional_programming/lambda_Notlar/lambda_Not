@@ -1,0 +1,115 @@
+/*
+    1) Lambda (Functional Programming) Java 8 ile kullanýlmaya baþlanmýþtýr.
+    2) Functional Programming'de "Ne yapýlacak" (What to do) üzerine yoðunlaþýlýr.
+       Structured Programming "Nasýl yapýlacak" (How to do) üzerine yoðýnlaþýlýr.
+    3) Functional Programming, Arrays ve Collections ile kullanýlýr.
+    4) "entrySet() methodu ile Map, Set'e dönüþtürülerek Functional Programming'de kullanýlabilir.
+*/
+/*
+    ForEach:
+    Stream içindeki veriyi tek tek tüketmekiçin oluþturulmuþ bir yapýdýr.
+    **Terminal iþlemi olduðundan dolayý stream artýk tüketilmiþ olarak kabul edilir ve
+    artýk kullanýlamayacaðý anlamýna gelir.
+--
+    Filter:
+    Dizimiz veya Collection’ýmýz üzerinde bizim belirteceðimiz koþullar doðrultusunda
+    filtreleme iþlemi yapmamýza yarayan bir yapýdýr.
+    Bu iþlem sonrasý belirttiðimiz koþula uygun olmayan elemanlar bir sonraki aþamada kullanýlamazlar.
+    Artýk elimizde filtrelenmiþ/süzülmüþ/elenmiþ bir veri vardýr
+--
+    Collect:
+    Collect metodu Stream türündeki nesneleri baþka biçimdeki nesneye,
+    veri yapýsýna dönüþtürmek için kullanýlýr.
+    Map :Stream içerisinde eriþilen her bir eleman üzerinde iþlem yapmamýza
+    ve baþka elemanlara dönüþtürmemize imkan saðlayan
+--
+    Distinct:
+    Stream içerisinde bulunan ve tekrar eden elemanlar varsa
+    bunlarý distinct metodu ile çýkartabilir ve
+    elimizde tekrar etmeyen birbirinden farklý
+    elemanlar barýndan bir veri setimiz kalýr
+--
+    Sorted:
+    Bazý durumlarda elimizde ki veri setini belirli bir parametreye göre sýralamak isteyebiliriz.
+    2 türü bulunmaktadýr. Birinci hali parametre almaz küçükten büyüðe þekilde sýralar.
+    Ýkinci formatý ise Comparator arayüzünden türediði için
+    bizim belirlemiþ olduðumuz parametreye göre sýralama iþlemi yapar.
+--
+    reduce : indirgeme demektir.
+    kullanýmý; elemanlarý teker teker iþler. Bir önceki adýmda elde edilen sonuç,
+    bir sonraki elemanla iþlemle tutulur
+    --
+    peek () 'in Javadoc sayfasý þöyle diyor: " Bu yöntem, temelde, öðeleri bir
+    ardýþýk düzen içinde belirli bir noktadan geçerken görmek istediðiniz
+    yerde hata ayýklamayý desteklemek için vardýr .
+    --
+    Match operasyonu bir akýþýn belirli kriterleri saðlayýp saðlamadýðýný ölçmek için kullanýlýr.
+    Map den farký her iterasyonu tek tek deðerlendirip sonucu yansýtmaz bunun yerine tüm koleksiyonu
+    deðerlendirerek sonucu yansýtmasýdýr. Match operasyonunun 3 çeþit kullanýmý bulunmaktadýr;
+    --
+        AnyMath: Vereceðimiz þarta baðlý olarak Stream içerisinde gezinir ve
+        herhangi bir elemanla eþleþme durumunda true dönecektir.
+        --
+        AllMatch: Verilen þarta göre Stream içerisindeki tüm elemanlarýn
+        bu þarta uymasý durumunda true dönecektir.
+        --
+        NoneMatch: Þarta göre Stream içindeki hiç bir
+        elemanýn þartý saðlamamasý durumunda true dönecektir.
+--
+    Limit
+    Elimizde var olan bir veri kaynaðýný, göstermek istediðimiz kadarýný göstermemize yarayan,
+    sýnýrlandýran bir metoddur. Parametre olarak vereceðimiz rakamla aslýnda
+    Stream içerisinde dönen çok sayýda veri var
+    ancak sen bize þu kadarýný göster diyoruz.
+   --
+    findFirst() => Ýlk elemaný verir. Bu akýþýn ilk elemanýný açýklayan bir Ýsteðe baðlý veya akýþ boþsa boþ bir Ýsteðe baðlý döndürür.
+    Akýþýn karþýlaþma sýrasý yoksa herhangi bir öðe iade edilebilir. Optional return eder.
+   --
+    // Arraylerde Stream kullanabilmek icin 2 yol vardir
+
+    1) Stream <Integer> isim=StreamOf(cevrilecek olan)
+    2) Arrays.stream(arr).
+  --
+    Count
+    Stream içerisinde bulunan toplam veri sayýsýný öðrenmemize yarar.
+ --
+    flatMap() => Herhangi bir Collection’daki (Array gibi) elemanlarý birer birer Stream’e yerleþtirir.
+    flatMap()’i kullanabilmek için elimizde bir Collection olmak zorunda.
+   --
+    split() => Bu String öðesini verilen normal ifadenin eþleþmelerine böler.
+    Bu yöntem, iki baðýmsýz deðiþkenli bölünmüþ yöntemi verilen ifade ve sýfýr sýnýr deðeriyle çaðýrýr gibi çalýþýr.
+    Sondaki boþ dizeler bu nedenle sonuç dizisine dahil edilmez.
+    --
+    Optional<Integer> => Bir Class’týr. Boþ olmayan bir deðer içerebilen veya içermeyen bir kap Objecttir.
+    *****Bir deðer varsa, isPresent () true, get () ise deðeri döndürecektir.
+    Ek olarak, bu sýnýf, bir int'i bir String'e ve bir String'i bir int'e dönüþtürmek için çeþitli yöntemler
+    ve ayrýca bir int ile ilgilenirken yararlý olan diðer sabitler ve yöntemler saðlar. Exception gibi çalýþýr.
+  --
+    #ifPresent – Varsa yap, yoksa yapma
+    Eðer bir Optional içerisinde sadece veri varsa (null deðilse) bir iþin yapýlmasý isteniyorsa #ifPresent metodu kullanýlabilir.
+    --
+    Comparator => bir Class’týr. Compar karþýlaþtýrmak demektir. Bazý nesneler koleksiyonuna toplam sýralama uygulayan bir karþýlaþtýrma iþlevi.
+    Karþýlaþtýrýcýlar, sýralama düzeni üzerinde hassas kontrol saðlamak için bir sýralama yöntemine (Collections.sort veya Arrays.sort gibi) aktarýlabilir.
+    Karþýlaþtýrýcýlar, belirli veri yapýlarýnýn (sýralý kümeler veya sýralý haritalar gibi) sýrasýný kontrol etmek veya doðal sýralamasý olmayan
+    nesnelerin koleksiyonlarý için bir sýralama saðlamak için de kullanýlabilir.
+    --
+    reverseOrder() => Comparator Class’ýnýn bir methodudur. Doðal sýralamanýn tersini (büyükten küçüðe) uygulayan bir Comparator (karþýlaþtýrýcý) döndürür.
+    comparing() => karþýlaþtýrma demektir.
+    reversed() => Bu karþýlaþtýrýcýnýn (comparator) ters sýralanmasýný uygulayan bir karþýlaþtýrýcý (comparator) döndürür.
+   --
+    skip(1) => atlama demek. Akýþýn ilk n elemanýný attýktan sonra bu akýþýn kalan elemanlarýndan oluþan bir akýþ döndürür.
+    Bu akýþ n'den daha az öðe içeriyorsa, boþ bir akýþ döndürülür. Bu, durum bilgisi olan bir ara iþlemdir.
+    skip(list.size()-1) => List’in uzunluðunun 1 eksiðini yazarsak son elemaný yazdýrýrýz.
+   --
+    Collectors.toList() => Öðeleri koleksiyonlarda toplamak, öðeleri çeþitli kriterlere göre özetlemek gibi çeþitli
+    yararlý azaltma iþlemlerini uygulayan Collector Uygulamalarý.
+  ---
+    // dosya eklemek icin 2 yol var
+    1) Files.lines(Path.of("path")   buradan stream e eklemek icin
+    Stream <String> satir=Files.lines(Path.of("dosya pathi"));
+     bu bize tekrardan stream tanimlamadan kullanmayi saglar
+    2) //Files.lines(Paths.get("dosya pathi")).  kullanilir
+  ---
+    satir.map(t->t.split(" ")).
+    flatMap(Arrays::stream). kelimelere ulasmamizi saglar
+    */
